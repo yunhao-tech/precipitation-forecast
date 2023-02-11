@@ -1,40 +1,26 @@
-# RAMP starting kit on solar wind classification
+Data camp project
 
+[task reference](https://github.com/ramp-kits/solar_wind.git)
 
-_Authors: Gautier Nguyen, Joris van den Bossche, Nicolas Aunai & Balazs Kegl_
+[ramp-kit doc](https://paris-saclay-cds.github.io/ramp-docs/ramp-workflow/stable/workflow.html)
 
-Interplanetary Coronal Mass Ejections (ICMEs) result from magnetic instabilities occurring in the Sun atmosphere, and interact with the planetary environment and may result in intense internal activity such as strong particle acceleration, so-called geomagnetic storms and geomagnetic induced currents. These effects have serious consequences regarding space and ground technologies and understanding them is part of the so-called space weather discipline.
+分工：
 
-ICMEs signatures as measured by in-situ spacecraft come as patterns in time series of the magnetic field, the particle density, bulk velocity, temperature etc. Although well visible by expert eyes, these patterns have quite variable characteristics which make naive automatization of their detection difficult.
+1.数据收集和清理（制作 torch dataset/dataloader）
+@Zong Shang
 
-The goal of this RAMP is to detect Interplanetary Coronal Mass Ejections (ICMEs) in the data measured by in-situ spacecraft.
+2.模型搭建
+@Yang Zhang
 
+3.整合进 ramp api
+@Yunhao
 
-#### Set up
+4.文档编写、starting_kit.ipynb
+@Yushan Liu
 
-Open a terminal and
+5.统筹、测试及各种不便分割的边角工作
+@maosicheng98
 
-1. install the `ramp-workflow` library (if not already done)
-  ```
-  $ pip install ramp-workflow
-  ```
-  
-2. Follow the ramp-kits instructions from the [wiki](https://github.com/paris-saclay-cds/ramp-workflow/wiki/Getting-started-with-a-ramp-kit)
+(以上内容保留至最终定稿)
 
-#### Local notebook
-
-Get started on this RAMP with the [dedicated notebook](solar_wind_starting_kit.ipynb).
-
-To test the starting-kit, run
-
-
-```
-ramp-test --quick-test
-```
-
-
-#### Help
-Go to the `ramp-workflow` [wiki](https://github.com/paris-saclay-cds/ramp-workflow/wiki) for more help on the [RAMP](https://ramp.studio) ecosystem.
-
-
-
+---

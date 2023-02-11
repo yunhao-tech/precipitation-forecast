@@ -1,23 +1,23 @@
-name: ramp-solar-wind
-channels:
-  - conda-forge
-  - pytorch
-dependencies:
-  - numpy
-  - scipy
-  - pandas>=0.23
-  - scikit-learn>=0.20
-  - pyarrow
-  - imbalanced-learn
-  - matplotlib
-  - joblib
-  - lightgbm
-  - xgboost
-  - pytorch-cpu
-  - torchvision-cpu
-  - skorch
+# name: ramp-solar-wind
+# channels:
+#   - conda-forge
+#   - pytorch
+# dependencies:
+#   - numpy
+#   - scipy
+#   - pandas>=0.23
+#   - scikit-learn>=0.20
+#   - pyarrow
+#   - imbalanced-learn
+#   - matplotlib
+#   - joblib
+#   - lightgbm
+#   - xgboost
+#   - pytorch-cpu
+#   - torchvision-cpu
+#   - skorch
 
-  - pip
-  - pip:
-      - ramp-workflow
-      - osfclient
+#   - pip
+#   - pip:
+#       - ramp-workflow
+#       - osfclient
