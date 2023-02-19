@@ -5,26 +5,17 @@
 # """
 import datetime
 import numpy as np
-from datetime import timedelta
 import h5py
 import urllib.parse
 import urllib.request
 import json
 import shutil
-import os,sys
-import pygmt
-import PIL
+import os
 import glob
-from matplotlib.pyplot import imshow
-import matplotlib.animation as animation
-from matplotlib import cm
 import matplotlib
 matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
-from matplotlib.colors import ListedColormap, LinearSegmentedColormap
-import xarray as xr
-import rioxarray as rio
-import pygmt
+from matplotlib.colors import ListedColormap
 from PIL import Image
 
 
@@ -151,7 +142,7 @@ def resize_images():
         im1 = im.resize((70,77))
         im1.save(filename,"PNG")
 
-def download_data_to_image(begin = datetime.date(2021,1,1), end = datetime.date(2021,1,2),private = True, train = True):
+def download_data_to_image(begin = datetime.date, end = datetime.date, private = True, train = True):
     for i in range((end - begin).days+1):
         today = begin + datetime.timedelta(days=i)
         year = str(today.year)
@@ -173,16 +164,19 @@ def download_data_to_image(begin = datetime.date(2021,1,1), end = datetime.date(
 
 if __name__ == "__main__":
 
-    begin = datetime.date(2021,1,1)
-    end = datetime.date(2021,1,1)
-    download_data_to_image(begin,end,True,True)
-    begin = datetime.date(2021,1,2)
-    end = datetime.date(2021,1,2)
-    download_data_to_image(begin,end,True,False)
-    begin = datetime.date(2021,1,3)
-    end = datetime.date(2021,1,3)
-    download_data_to_image(begin,end,False,True)
-    begin = datetime.date(2021,1,4)
-    end = datetime.date(2021,1,4)
-    download_data_to_image(begin,end,False,False)
+    period = 10 # 10 days by default
+    for i in range(period):
+        begin = datetime.date(2021,1,1+i)
+        end = datetime.date(2021,1,1+i)
+        download_data_to_image(begin,end,False,True)
+        begin = datetime.date(2021,2,1+i)
+        end = datetime.date(2021,2,1+i)
+        download_data_to_image(begin,end,False,False)
+        # decomment if you want to add private data
+        # begin = datetime.date(2021,3,1+i)
+        # end = datetime.date(2021,3,1+i)
+        # download_data_to_image(begin,end,True,True)
+        # begin = datetime.date(2021,4,1+i)
+        # end = datetime.date(2021,4,1+i)
+        # download_data_to_image(begin,end,True,False)
     
