@@ -31,4 +31,8 @@ Data camp project
 
 测试数据：前 18 帧为输入 X_test，后 18 帧为 Y_test
 
-因此注意划分前后 18 帧，不要放在同一个文件夹里
+训练数据包含 2021 年 1 月前 10 天晚上 20-23 点每隔 5 分钟的雷达图像，测试数据包含 2021 年 2 月前 10 天晚上 20-23 点每隔 5 分钟的雷达图像。
+在 problem.py 中注意划分前后 18 帧，即实现`split_X_Y`
+
+由于 api 的下载限制，我们事先准备好数据，以免重新配置 api 的麻烦。
+Due to the download restriction of a single api, we prepare the data for you so you don't need to run download_data.py with the trouble of reconfiguration your own api.
