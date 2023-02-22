@@ -4,13 +4,13 @@ from keras.layers import ConvLSTM2D, BatchNormalization, LeakyReLU
 from keras.layers.convolutional import Conv3D
 
 
-re_height = 200
-re_width = 200
+RE_HEIGHT = 200
+RE_WIDTH = 200
 
 def create_model():
     model = Sequential()
     model.add(ConvLSTM2D(filters=64, kernel_size=(7, 7),
-                    input_shape=(18, re_width, re_height,1),
+                    input_shape=(18, RE_WIDTH, RE_HEIGHT,1),
                     padding='same', activation=LeakyReLU(alpha=0.01), 
                     return_sequences=True))
     model.add(BatchNormalization())
@@ -35,7 +35,7 @@ class ImageRegressor():
   def __init__(self):
     model = create_model()
     model.compile(loss='binary_crossentropy', optimizer='adadelta')
-    self.epochs = 1
+    self.epochs = 5
     self.batch_size = 1
     self.model = model
   

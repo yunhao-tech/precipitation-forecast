@@ -4,7 +4,7 @@ from sklearn.model_selection import KFold
 import sys
 sys.path.append('.')
 
-from rampwf.score_types.negative_log_likelihood import NegativeLogLikelihood
+from score_types.negative_log_likelihood import NegativeLogLikelihood
 from workflows.Image_regressor import ImageRegressor
 from utils.create_dataset import create_dataset_from_raw, create_shifted_frames
 from prediction_types.regression_3D import make_image_regression
@@ -21,11 +21,10 @@ workflow = ImageRegressor()
 # # ----------------------------------------------------------------------------
 # # Predictions type
 # # ----------------------------------------------------------------------------
-re_height = 200
-re_width = 200
 
-_prediction_label_names = list(range(re_height * re_width * 18))
-
+RE_HEIGHT = 200
+RE_WIDTH = 200
+_prediction_label_names = list(range(RE_HEIGHT * RE_WIDTH * 18))
 Predictions = make_image_regression(label_names=_prediction_label_names)
 
 
@@ -41,10 +40,9 @@ score_types = [
 # # Cross-validation scheme
 # # ----------------------------------------------------------------------------
 
-
 def get_cv(X, y):
     # using 5 folds as default
-    k = 2
+    k = 5
     # up to 10 fold cross-validation based on 5 splits, using two parts for
     # testing in each fold
     n_splits = 5
@@ -76,14 +74,13 @@ def get_cv(X, y):
 # # ----------------------------------------------------------------------------
 
 def _read_data(path):
-    dataset = create_dataset_from_raw(path, resize_to=(re_width, re_height))
+    dataset = create_dataset_from_raw(path, resize_to=(RE_WIDTH, RE_HEIGHT))
     dataset = np.expand_dims(dataset, axis=-1)
     dataset_x, dataset_y = create_shifted_frames(dataset)
     return dataset_x, dataset_y
 
 def get_train_data(path="."):
     return _read_data(os.path.join(path, 'data/public_train_raw/'))
-
 
 def get_test_data(path="."):
         return _read_data(os.path.join(path, 'data/public_test_raw/'))
