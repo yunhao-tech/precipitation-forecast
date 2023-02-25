@@ -1,12 +1,13 @@
-# RAMP starting kit on solar wind classification
+# Convolutional LSTM neural networks for predicting precipitation in the short-term
 
 _Authors: Yunhao Chen, Sicheng Mao, Zong Shang, Yushan Liu_
 
-Interplanetary Coronal Mass Ejections (ICMEs) occur due to magnetic instabilities in the Sun's atmosphere and can affect the planetary environment, causing strong particle acceleration, geomagnetic storms, and geomagnetic induced currents. These effects can have serious consequences for space and ground technologies, and understanding them is an important aspect of the space weather discipline.
 
-Signatures of ICMEs can be observed through in-situ spacecraft measurements as patterns in time series of various factors such as the magnetic field, particle density, bulk velocity, and temperature. While these patterns are recognizable to experts, their characteristics can vary widely, making automated detection a challenge.
+Convolutional neural networks are a type of deep learning algorithm that have shown promising results in detecting features in images, and LSTM works pretty well on tasks involving the time dimension such as time series prediction. These networks have the ability to learn spatial and temporal dependencies in the data by integrating convolutional layers and LSTM layers, which makes them effective in capturing complex patterns in weather data. By training on historical radar reflectivity data, Convolutional LSTM neural networks can make accurate predictions of precipitation in the short-term, providing valuable information for weather forecasting and disaster preparedness.
 
-This RAMP aims at identifing Interplanetary Coronal Mass Ejections (ICMEs) in the data collected by in-situ spacecraft.
+The radar dataset which contains composite reflectivity are collected by KNMI, in a raw format of every 5 minutes. Each training data point consists of 36 consecutive radar raw files, the first 18 frames being used as features and the last 18 as the target to predict by neural network. Basically, we are trying to predict the precipitation in the next 1.5 hours given the data of the past 1.5 hours.
+
+
 #### Set up
 
 Open a terminal and
